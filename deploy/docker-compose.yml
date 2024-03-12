@@ -44,7 +44,7 @@ services:
       start_period: 10s
 
   backend:
-    image: blockscout/${DOCKER_REPO:-blockscout}:${DOCKER_TAG:-latest}
+    image: blockscout
     pull_policy: always
     restart: always
     stop_grace_period: 5m
@@ -72,7 +72,7 @@ services:
         CHAIN_ID: '2340'
 
   visualizer:
-    image: ghcr.io/blockscout/visualizer:${VISUALIZER_DOCKER_TAG:-latest}
+    image: ghcr.io/blockscout/visualizer:latest
     pull_policy: always
     platform: linux/amd64
     restart: always
@@ -81,7 +81,7 @@ services:
       -  ../envs/common-visualizer.env
 
   sig-provider:
-    image: ghcr.io/blockscout/sig-provider:${SIG_PROVIDER_DOCKER_TAG:-latest}
+    image: ghcr.io/blockscout/sig-provider:latest
     pull_policy: always
     platform: linux/amd64
     restart: always
@@ -130,7 +130,7 @@ services:
 
 
   stats:
-    image: ghcr.io/blockscout/stats:${STATS_DOCKER_TAG:-latest}
+    image: ghcr.io/blockscout/stats:latest
     pull_policy: always
     platform: linux/amd64
     restart: always
@@ -162,7 +162,7 @@ services:
       - 8080:8080
       - 8081:8081
   smart-contract-verifier:
-    image: ghcr.io/blockscout/smart-contract-verifier:${SMART_CONTRACT_VERIFIER_DOCKER_TAG:-latest}
+    image: ghcr.io/blockscout/smart-contract-verifier:latest
     pull_policy: always
     platform: linux/amd64
     restart: always
