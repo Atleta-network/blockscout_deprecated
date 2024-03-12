@@ -22,7 +22,7 @@ services:
   db:
     depends_on:
       db-init:
-        condition: service_completed_successfully
+        condition: service_healthy
     image: postgres:14
     user: 2000:2000
     restart: always
@@ -107,7 +107,7 @@ services:
   stats-db:
     depends_on:
       stats-db-init:
-        condition: service_completed_successfully
+        condition: service_healthy
     image: postgres:14
     user: 2000:2000
     restart: always
