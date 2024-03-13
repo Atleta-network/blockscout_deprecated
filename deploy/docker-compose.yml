@@ -21,8 +21,7 @@ services:
 
   db:
     depends_on:
-      db-init:
-        condition: service_healthy
+      - db-init
     image: postgres:14
     user: 2000:2000
     restart: always
@@ -44,7 +43,7 @@ services:
       start_period: 10s
 
   backend:
-    image: blockscout
+    image: blockscout/blockscout:latest
     pull_policy: always
     restart: always
     stop_grace_period: 5m
@@ -106,8 +105,8 @@ services:
 
   stats-db:
     depends_on:
-      stats-db-init:
-        condition: service_healthy
+      - stats-db-init
+
     image: postgres:14
     user: 2000:2000
     restart: always
