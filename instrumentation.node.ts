@@ -18,12 +18,12 @@ const traceExporter = new OTLPTraceExporter();
 
 const sdk = new NodeSDK({
   resource: new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: 'blockscout_frontend',
+    [SemanticResourceAttributes.SERVICE_NAME]: 'atlascan_frontend',
     [SemanticResourceAttributes.SERVICE_VERSION]: process.env.NEXT_PUBLIC_GIT_TAG || process.env.NEXT_PUBLIC_GIT_COMMIT_SHA || 'unknown_version',
     [SemanticResourceAttributes.SERVICE_INSTANCE_ID]:
-        process.env.NEXT_PUBLIC_APP_INSTANCE ||
-        process.env.NEXT_PUBLIC_APP_HOST?.replace('.blockscout.com', '').replaceAll('-', '_') ||
-        'unknown_app',
+      process.env.NEXT_PUBLIC_APP_INSTANCE ||
+      process.env.NEXT_PUBLIC_APP_HOST?.replace('.atlascan.com', '').replaceAll('-', '_') ||
+      'unknown_app',
   }),
   spanProcessor: new SimpleSpanProcessor(traceExporter),
   traceExporter,

@@ -1,6 +1,6 @@
 # Docker-compose configuration
 
-Runs Blockscout locally in Docker containers with [docker-compose](https://github.com/docker/compose).
+Runs Atlascan locally in Docker containers with [docker-compose](https://github.com/docker/compose).
 
 ## Prerequisites
 
@@ -21,9 +21,9 @@ This command uses `docker-compose.yml` by-default, which builds the backend of t
 
 - Postgres 14.x database, which will be available at port 7432 on the host machine.
 - Redis database of the latest version.
-- Blockscout backend with api at /api path.
+- Atlascan backend with api at /api path.
 - Nginx proxy to bind backend, frontend and microservices.
-- Blockscout explorer at http://localhost.
+- Atlascan explorer at http://localhost.
 
 and 4 containers for microservices (written in Rust):
 
@@ -57,7 +57,7 @@ All of the configs assume the Ethereum JSON RPC is running at http://localhost:8
 
 In order to stop launched containers, run `docker-compose -d -f config_file.yml down`, replacing `config_file.yml` with the file name of the config which was previously launched.
 
-You can adjust BlockScout environment variables:
+You can adjust Atlascan environment variables:
 
 - for backend in `./envs/common-blockscout.env`
 - for frontend in `./envs/common-frontend.env`

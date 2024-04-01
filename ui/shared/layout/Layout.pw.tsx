@@ -13,7 +13,7 @@ const test = base.extend({
   context: contextWithEnvs([
     {
       name: 'NEXT_PUBLIC_MAINTENANCE_ALERT_MESSAGE',
-      value: 'We are currently lacking pictures of <i>ducks</i>. Please <a href="mailto:duck@blockscout.com">send</a> us one.',
+      value: 'We are currently lacking pictures of <i>ducks</i>. Please <a href="mailto:duck@atlascan.com">send</a> us one.',
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ]) as any,

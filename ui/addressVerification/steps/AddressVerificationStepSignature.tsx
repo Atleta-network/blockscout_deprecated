@@ -142,7 +142,7 @@ const AddressVerificationStepSignature = ({ address, signingMessage, contractCre
     );
   })();
 
-  const contactUsLink = <span>contact us <Link href="mailto:help@blockscout.com">help@blockscout.com</Link></span>;
+  const contactUsLink = <span>contact us <Link href="mailto:help@atlascan.com">help@atlascan.com</Link></span>;
 
   const rootError = (() => {
     switch (formState.errors.root?.type) {
@@ -187,7 +187,7 @@ const AddressVerificationStepSignature = ({ address, signingMessage, contractCre
     <form noValidate onSubmit={ onSubmit }>
       { rootError && <Alert status="warning" mb={ 6 }>{ rootError }</Alert> }
       <Box mb={ 8 }>
-        <span>Please select the address to sign and copy the message and sign it using the Blockscout message provider of your choice. </span>
+        <span>Please select the address to sign and copy the message and sign it using the Atlascan message provider of your choice. </span>
         <Link href="https://docs.blockscout.com/for-users/my-account/verified-addresses/copy-and-sign-message" target="_blank">
           Additional instructions
         </Link>

@@ -30,7 +30,7 @@ export const featureEnvs = {
     },
   ],
   txInterpretation: [
-    { name: 'NEXT_PUBLIC_TRANSACTION_INTERPRETATION_PROVIDER', value: 'blockscout' },
+    { name: 'NEXT_PUBLIC_TRANSACTION_INTERPRETATION_PROVIDER', value: 'atlascan' },
   ],
   zkRollup: [
     { name: 'NEXT_PUBLIC_IS_ZKEVM_L2_NETWORK', value: 'true' },
