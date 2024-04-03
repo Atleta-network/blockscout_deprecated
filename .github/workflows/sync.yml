@@ -13,8 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Check if upstream is set up
+        id: check_upstream
+        run: |
+          UPSTREAM_URL="https://github.com/blockscout/frontend"
+          git remote get-url upstream | grep "$UPSTREAM_URL" > /dev/null
+          echo "::set-output name=upstream_setup::${PIPESTATUS[1]}"
+
       - name: Get latest release from upstream
         id: get_latest_release
+        if: steps.check_upstream.outputs.upstream_setup == '0'
         run: |
           UPSTREAM_URL="https://github.com/blockscout/frontend"
           UPSTREAM_BRANCH="main"
@@ -23,6 +31,7 @@ jobs:
 
       - name: Check if there's a new release
         id: check_release
+        if: steps.check_upstream.outputs.upstream_setup == '0'
         run: |
           LOCAL_BRANCH="atleta"
           UPSTREAM_BRANCH="main"
@@ -33,9 +42,21 @@ jobs:
           fi
 
       - name: Sync with upstream if a new release exists
-        if: steps.check_release.outputs.release_exists == 'true'
+        id: sync_with_upstream
+        if: steps.check_release.outputs.release_exists == 'true' && steps.check_upstream.outputs.upstream_setup == '0'
         run: |
           UPSTREAM_BRANCH="main"
           git fetch upstream "$UPSTREAM_BRANCH"
-          git rebase "upstream/$UPSTREAM_BRANCH"
-          git push origin "$UPSTREAM_BRANCH"
+          git checkout -b sync_branch "upstream/$UPSTREAM_BRANCH"
+          git push origin sync_branch
+
+      - name: Create pull request
+        if: steps.sync_with_upstream.outputs.success == 'true'
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: sync_branch
+          commit-message: "Sync with upstream"
+          title: "Sync with upstream"
+          body: |
+            This pull request is automatically generated to sync with the latest changes from the upstream repository.
