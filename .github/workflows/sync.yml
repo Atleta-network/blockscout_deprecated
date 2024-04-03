@@ -1,7 +1,6 @@
 name: Sync with Upstream
 
 on:
-  branches: [ "atleta" ]
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight
 
