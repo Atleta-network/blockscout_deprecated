@@ -18,10 +18,10 @@ jobs:
             DATE=$(date +%d%m%y)
             HMS=$(date +%H%M%S)
             echo "DATE: $DATE, HMS: $HMS"
-            docker build -t docker.io/atletanetwork/blockscout:${DATE}-${HMS} .
-            docker tag docker.io/atletanetwork/blockscout:${DATE}-${HMS} docker.io/atletanetwork/blockscout:latest
-            docker push docker.io/atletanetwork/blockscout:${DATE}-${HMS}
-            docker push docker.io/atletanetwork/blockscout:latest
+            docker build -t docker.io/atletanetwork/blockscout:frontend-${DATE}-${HMS} .
+            docker tag docker.io/atletanetwork/blockscout:frontend-${DATE}-${HMS} docker.io/atletanetwork/blockscout:frontend-latest
+            docker push docker.io/atletanetwork/blockscout:frontend-${DATE}-${HMS}
+            docker push docker.io/atletanetwork/blockscout:frontend-latest
           
       - name: Set up SSH
         run: |
