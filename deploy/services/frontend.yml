@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   frontend:
-    image: explorer-frontend
+    image: atletanetwork/blockscout:frontend-latest
     pull_policy: never
     restart: always
     container_name: 'frontend'
