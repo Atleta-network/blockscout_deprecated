@@ -13,12 +13,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Create Image Tarball
+      - name: Build and Push Docker Image
         run: |
-          docker build --build-arg GIT_COMMIT_SHA=$(git rev-parse --short HEAD) --build-arg GIT_TAG=$(git describe --tags --abbrev=0) -t explorer-frontend .
-          docker save -o explorer-frontend.tar explorer-frontend
-          mkdir -p artifacts
-          mv explorer-frontend.tar artifacts/
+            DATE=$(date +%d%m%y)
+            HMS=$(date +%H%M%S)
+            echo "DATE: $DATE, HMS: $HMS"
+            docker build -t docker.io/atletanetwork/blockscout:frontend-${DATE}-${HMS} .
+            docker tag docker.io/atletanetwork/blockscout:frontend-${DATE}-${HMS} docker.io/atletanetwork/blockscout:frontend-latest
+            docker push docker.io/atletanetwork/blockscout:frontend-${DATE}-${HMS}
+            docker push docker.io/atletanetwork/blockscout:frontend-latest
           
       - name: Set up SSH
         run: |
@@ -31,7 +34,6 @@ jobs:
 
       - name: Copy Files to Server
         run: |
-          scp -r artifacts/* ${{ secrets.HOST_USER}}@${{ secrets.EXPLORER_HOST }}:/blockscout/
           scp -r deploy/*    ${{ secrets.HOST_USER}}@${{ secrets.EXPLORER_HOST }}:/blockscout/
 
 
@@ -43,7 +45,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /blockscout
-            docker load -i explorer-frontend.tar
             docker compose down
             docker compose pull
             docker compose up -d --build --remove-orphans
