@@ -1,0 +1,155 @@
+2024-04-01T13:33:21.305 application=db_connection [error] Postgrex.Protocol (#PID<0.199.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.305 application=db_connection [error] Postgrex.Protocol (#PID<0.210.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.305 application=db_connection [error] Postgrex.Protocol (#PID<0.205.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.305 application=db_connection [error] Postgrex.Protocol (#PID<0.216.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.305 application=db_connection [error] Postgrex.Protocol (#PID<0.209.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.305 application=db_connection [error] Postgrex.Protocol (#PID<0.200.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.305 application=db_connection [error] Postgrex.Protocol (#PID<0.204.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.315 application=db_connection [error] Postgrex.Protocol (#PID<0.220.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.321 application=db_connection [error] Postgrex.Protocol (#PID<0.225.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.330 application=db_connection [error] Postgrex.Protocol (#PID<0.229.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.336 application=db_connection [error] Postgrex.Protocol (#PID<0.233.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:21.341 application=db_connection [error] Postgrex.Protocol (#PID<0.237.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:22.427 application=db_connection [error] Postgrex.Protocol (#PID<0.204.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:22.580 application=db_connection [error] Postgrex.Protocol (#PID<0.205.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:22.921 application=db_connection [error] Postgrex.Protocol (#PID<0.199.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:23.377 application=db_connection [error] Postgrex.Protocol (#PID<0.209.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:24.010 application=db_connection [error] Postgrex.Protocol (#PID<0.200.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:24.118 application=db_connection [error] Postgrex.Protocol (#PID<0.210.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:24.268 application=ecto_sql [error] Could not create schema migrations table. This error usually happens due to the following:
+
+  * The database does not exist
+  * The "schema_migrations" table, which Ecto uses for managing
+    migrations, was defined by another library
+  * There is a deadlock while migrating (such as using concurrent
+    indexes with a migration_lock)
+
+To fix the first issue, run "mix ecto.create" for the desired MIX_ENV.
+
+To address the second, you can run "mix ecto.drop" followed by
+"mix ecto.create", both for the desired MIX_ENV. Alternatively you may
+configure Ecto to use another table and/or repository for managing
+migrations:
+
+    config :explorer, Explorer.Repo,
+      migration_source: "some_other_table_for_schema_migrations",
+      migration_repo: AnotherRepoForSchemaMigrations
+
+The full error report is shown below.
+
+2024-04-01T13:33:25.596 application=db_connection [error] Postgrex.Protocol (#PID<0.204.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.596 application=db_connection [error] Postgrex.Protocol (#PID<0.200.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.596 application=db_connection [error] Postgrex.Protocol (#PID<0.199.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.596 application=db_connection [error] Postgrex.Protocol (#PID<0.205.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.596 application=db_connection [error] Postgrex.Protocol (#PID<0.216.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.596 application=db_connection [error] Postgrex.Protocol (#PID<0.211.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.596 application=db_connection [error] Postgrex.Protocol (#PID<0.212.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.604 application=db_connection [error] Postgrex.Protocol (#PID<0.220.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.607 application=db_connection [error] Postgrex.Protocol (#PID<0.225.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.611 application=db_connection [error] Postgrex.Protocol (#PID<0.229.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.615 application=db_connection [error] Postgrex.Protocol (#PID<0.233.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:25.620 application=db_connection [error] Postgrex.Protocol (#PID<0.237.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:27.110 application=db_connection [error] Postgrex.Protocol (#PID<0.205.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): connection refused - :econnrefused
+2024-04-01T13:33:27.327 application=db_connection [error] Postgrex.Protocol (#PID<0.211.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:27.393 application=db_connection [error] Postgrex.Protocol (#PID<0.199.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:27.573 application=db_connection [error] Postgrex.Protocol (#PID<0.200.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:27.705 application=db_connection [error] Postgrex.Protocol (#PID<0.212.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:28.579 application=db_connection [error] Postgrex.Protocol (#PID<0.204.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:28.615 application=ecto_sql [error] Could not create schema migrations table. This error usually happens due to the following:
+
+  * The database does not exist
+  * The "schema_migrations" table, which Ecto uses for managing
+    migrations, was defined by another library
+  * There is a deadlock while migrating (such as using concurrent
+    indexes with a migration_lock)
+
+To fix the first issue, run "mix ecto.create" for the desired MIX_ENV.
+
+To address the second, you can run "mix ecto.drop" followed by
+"mix ecto.create", both for the desired MIX_ENV. Alternatively you may
+configure Ecto to use another table and/or repository for managing
+migrations:
+
+    config :explorer, Explorer.Repo,
+      migration_source: "some_other_table_for_schema_migrations",
+      migration_repo: AnotherRepoForSchemaMigrations
+
+The full error report is shown below.
+
+2024-04-01T13:33:29.956 application=db_connection [error] Postgrex.Protocol (#PID<0.204.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.956 application=db_connection [error] Postgrex.Protocol (#PID<0.200.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.956 application=db_connection [error] Postgrex.Protocol (#PID<0.199.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.956 application=db_connection [error] Postgrex.Protocol (#PID<0.211.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.956 application=db_connection [error] Postgrex.Protocol (#PID<0.205.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.956 application=db_connection [error] Postgrex.Protocol (#PID<0.212.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.956 application=db_connection [error] Postgrex.Protocol (#PID<0.216.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.966 application=db_connection [error] Postgrex.Protocol (#PID<0.220.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.971 application=db_connection [error] Postgrex.Protocol (#PID<0.225.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.976 application=db_connection [error] Postgrex.Protocol (#PID<0.229.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.980 application=db_connection [error] Postgrex.Protocol (#PID<0.233.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:29.983 application=db_connection [error] Postgrex.Protocol (#PID<0.237.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:31.033 application=db_connection [error] Postgrex.Protocol (#PID<0.205.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:31.422 application=db_connection [error] Postgrex.Protocol (#PID<0.212.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:31.445 application=db_connection [error] Postgrex.Protocol (#PID<0.200.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:31.558 application=db_connection [error] Postgrex.Protocol (#PID<0.199.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:32.120 application=db_connection [error] Postgrex.Protocol (#PID<0.204.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:32.355 application=db_connection [error] Postgrex.Protocol (#PID<0.211.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:32.968 application=ecto_sql [error] Could not create schema migrations table. This error usually happens due to the following:
+
+  * The database does not exist
+  * The "schema_migrations" table, which Ecto uses for managing
+    migrations, was defined by another library
+  * There is a deadlock while migrating (such as using concurrent
+    indexes with a migration_lock)
+
+To fix the first issue, run "mix ecto.create" for the desired MIX_ENV.
+
+To address the second, you can run "mix ecto.drop" followed by
+"mix ecto.create", both for the desired MIX_ENV. Alternatively you may
+configure Ecto to use another table and/or repository for managing
+migrations:
+
+    config :explorer, Explorer.Repo,
+      migration_source: "some_other_table_for_schema_migrations",
+      migration_repo: AnotherRepoForSchemaMigrations
+
+The full error report is shown below.
+
+2024-04-01T13:33:37.632 application=db_connection [error] Postgrex.Protocol (#PID<0.216.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.632 application=db_connection [error] Postgrex.Protocol (#PID<0.209.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.632 application=db_connection [error] Postgrex.Protocol (#PID<0.205.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.632 application=db_connection [error] Postgrex.Protocol (#PID<0.210.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.632 application=db_connection [error] Postgrex.Protocol (#PID<0.204.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.632 application=db_connection [error] Postgrex.Protocol (#PID<0.199.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.632 application=db_connection [error] Postgrex.Protocol (#PID<0.200.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.648 application=db_connection [error] Postgrex.Protocol (#PID<0.220.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.657 application=db_connection [error] Postgrex.Protocol (#PID<0.225.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.664 application=db_connection [error] Postgrex.Protocol (#PID<0.229.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.670 application=db_connection [error] Postgrex.Protocol (#PID<0.233.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:37.675 application=db_connection [error] Postgrex.Protocol (#PID<0.237.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:39.161 application=db_connection [error] Postgrex.Protocol (#PID<0.205.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:39.291 application=db_connection [error] Postgrex.Protocol (#PID<0.204.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:39.357 application=db_connection [error] Postgrex.Protocol (#PID<0.200.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:39.774 application=db_connection [error] Postgrex.Protocol (#PID<0.199.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:40.540 application=db_connection [error] Postgrex.Protocol (#PID<0.210.0>) failed to connect: ** (DBConnection.ConnectionError) tcp connect (db:5432): non-existing domain - :nxdomain
+2024-04-01T13:33:40.627 application=ecto_sql [error] Could not create schema migrations table. This error usually happens due to the following:
+
+  * The database does not exist
+  * The "schema_migrations" table, which Ecto uses for managing
+    migrations, was defined by another library
+  * There is a deadlock while migrating (such as using concurrent
+    indexes with a migration_lock)
+
+To fix the first issue, run "mix ecto.create" for the desired MIX_ENV.
+
+To address the second, you can run "mix ecto.drop" followed by
+"mix ecto.create", both for the desired MIX_ENV. Alternatively you may
+configure Ecto to use another table and/or repository for managing
+migrations:
+
+    config :explorer, Explorer.Repo,
+      migration_source: "some_other_table_for_schema_migrations",
+      migration_repo: AnotherRepoForSchemaMigrations
+
+The full error report is shown below.
+

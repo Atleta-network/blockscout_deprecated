@@ -55,7 +55,7 @@ test.beforeEach(async({ page }) => {
   }));
 });
 
-test('base view', async({ mount, page, createSocket }) => {
+test('base view', async({ mount, createSocket }) => {
   const component = await mount(
     <TestApp withSocket>
       <Token/>
@@ -68,8 +68,8 @@ test('base view', async({ mount, page, createSocket }) => {
   socketServer.sendMessage(socket, channel, 'total_supply', { total_supply: 10 ** 20 });
 
   await expect(component).toHaveScreenshot({
-    mask: [ page.locator(configs.adsBannerSelector) ],
-    maskColor: configs.maskColor,
+    // mask: [ page.locator(configs.adsBannerSelector) ],
+    // maskColor: configs.maskColor,
   });
 });
 
@@ -99,8 +99,8 @@ test('with verified info', async({ mount, page, createSocket }) => {
   await page.getByRole('button', { name: /project info/i }).click();
 
   await expect(component).toHaveScreenshot({
-    mask: [ page.locator(configs.adsBannerSelector) ],
-    maskColor: configs.maskColor,
+    // mask: [ page.locator(configs.adsBannerSelector) ],
+    // maskColor: configs.maskColor,
   });
 });
 
@@ -158,14 +158,14 @@ bridgedTokenTest('bridged token', async({ mount, page, createSocket }) => {
   socketServer.sendMessage(socket, channel, 'total_supply', { total_supply: 10 ** 20 });
 
   await expect(component).toHaveScreenshot({
-    mask: [ page.locator(configs.adsBannerSelector) ],
-    maskColor: configs.maskColor,
+    // mask: [ page.locator(configs.adsBannerSelector) ],
+    // maskColor: configs.maskColor,
   });
 });
 
 test.describe('mobile', () => {
   test.use({ viewport: devices['iPhone 13 Pro'].viewport });
-  test('base view', async({ mount, page, createSocket }) => {
+  test('base view', async({ mount, createSocket }) => {
     const component = await mount(
       <TestApp withSocket>
         <Token/>
@@ -178,8 +178,8 @@ test.describe('mobile', () => {
     socketServer.sendMessage(socket, channel, 'total_supply', { total_supply: 10 ** 20 });
 
     await expect(component).toHaveScreenshot({
-      mask: [ page.locator(configs.adsBannerSelector) ],
-      maskColor: configs.maskColor,
+      //mask: [ page.locator(configs.adsBannerSelector) ],
+      //maskColor: configs.maskColor,
     });
   });
 
@@ -207,8 +207,8 @@ test.describe('mobile', () => {
     socketServer.sendMessage(socket, channel, 'total_supply', { total_supply: 10 ** 20 });
 
     await expect(component).toHaveScreenshot({
-      mask: [ page.locator(configs.adsBannerSelector) ],
-      maskColor: configs.maskColor,
+      // mask: [ page.locator(configs.adsBannerSelector) ],
+      // maskColor: configs.maskColor,
     });
   });
 });

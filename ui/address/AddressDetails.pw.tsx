@@ -11,7 +11,7 @@ import * as countersMock from 'mocks/address/counters';
 import * as tokensMock from 'mocks/address/tokens';
 import TestApp from 'playwright/TestApp';
 import buildApiUrl from 'playwright/utils/buildApiUrl';
-import * as configs from 'playwright/utils/configs';
+// import * as configs from 'playwright/utils/configs';
 
 import AddressDetails from './AddressDetails';
 import MockAddressPage from './testUtils/MockAddressPage';
@@ -46,8 +46,8 @@ test('contract +@mobile', async({ mount, page }) => {
   );
 
   await expect(component).toHaveScreenshot({
-    mask: [ page.locator(configs.adsBannerSelector) ],
-    maskColor: configs.maskColor,
+    // mask: [ page.locator(configs.adsBannerSelector) ],
+    // maskColor: configs.maskColor,
   });
 });
 
@@ -89,8 +89,8 @@ test('token', async({ mount, page }) => {
   );
 
   await expect(component).toHaveScreenshot({
-    mask: [ page.locator(configs.adsBannerSelector) ],
-    maskColor: configs.maskColor,
+    // mask: [ page.locator(configs.adsBannerSelector) ],
+    // maskColor: configs.maskColor,
   });
 });
 
@@ -112,7 +112,7 @@ test('validator +@mobile', async({ mount, page }) => {
   );
 
   await expect(component).toHaveScreenshot({
-    mask: [ page.locator(configs.adsBannerSelector) ],
-    maskColor: configs.maskColor,
+    // mask: [ page.locator(configs.adsBannerSelector) ],
+    // maskColor: configs.maskColor,
   });
 });
