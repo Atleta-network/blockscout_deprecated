@@ -7,7 +7,7 @@ import buildApiUrl from 'playwright/utils/buildApiUrl';
 
 import AddressCoinBalance from './AddressCoinBalance';
 
-const addressHash = '0x08e390762f64ABA6F9F9269589e1A702623e90F1';
+const addressHash = 'hash';
 const BALANCE_HISTORY_API_URL = buildApiUrl('address_coin_balance', { hash: addressHash });
 const BALANCE_HISTORY_CHART_API_URL = buildApiUrl('address_coin_balance_chart', { hash: addressHash });
 const hooksConfig = {

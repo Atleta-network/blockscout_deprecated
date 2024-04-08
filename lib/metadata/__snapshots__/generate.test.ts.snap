@@ -26,7 +26,7 @@ exports[`generates correct metadata for: dynamic route with API data 1`] = `
 
 exports[`generates correct metadata for: static route 1`] = `
 {
-  "description": "Atlascan is the #1 open-source blockchain explorer available today. 100+ chains and counting rely on Atlascan data availability, APIs, and ecosystem tools to support their networks.",
+  "description": "Blockscout is the #1 open-source blockchain explorer available today. 100+ chains and counting rely on Blockscout data availability, APIs, and ecosystem tools to support their networks.",
   "opengraph": {
     "description": "",
     "imageUrl": "http://localhost/static/og_placeholder.png",

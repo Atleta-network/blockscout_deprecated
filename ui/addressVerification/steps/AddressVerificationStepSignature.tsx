@@ -142,7 +142,7 @@ const AddressVerificationStepSignature = ({ address, signingMessage, contractCre
     );
   })();
 
-  const contactUsLink = <span>contact us <Link href="mailto:help@atlascan.com">help@atlascan.com</Link></span>;
+  const contactUsLink = <span>contact us <Link href="mailto:help@blockscout.com">help@blockscout.com</Link></span>;
 
   const rootError = (() => {
     switch (formState.errors.root?.type) {

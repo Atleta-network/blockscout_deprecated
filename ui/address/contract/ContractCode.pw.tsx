@@ -27,7 +27,6 @@ const test = base.extend<socketServer.SocketServerFixture>({
 test.describe.configure({ mode: 'serial' });
 
 test('full view +@mobile +@dark-mode', async({ mount, page }) => {
-  // await page.route('https://cdn.jsdelivr.net/npm/monaco-editor@0.33.0/**', (route) => route.abort());
   await page.route(CONTRACT_API_URL, (route) => route.fulfill({
     status: 200,
     body: JSON.stringify(contractMock.withChangedByteCode),

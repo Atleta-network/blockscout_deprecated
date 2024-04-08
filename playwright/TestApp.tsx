@@ -36,7 +36,7 @@ const defaultAppContext = {
 
 // >>> Web3 stuff
 const chains = [ mainnet ];
-const WALLET_CONNECT_PROJECT_ID = '1ca62e51c2fd3eab3fa030d624000507';
+const WALLET_CONNECT_PROJECT_ID = 'PROJECT_ID';
 
 const wagmiConfig = defaultWagmiConfig({
   chains,
