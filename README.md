@@ -1,8 +1,8 @@
-<h1 align="center">Blockscout frontend</h1>
+<h1 align="center">Atlascan frontend</h1>
 
 <p align="center">
     <span>Frontend application for </span>
-    <a href="https://github.com/blockscout/blockscout/blob/master/README.md">Blockscout</a>
+    <a href="https://github.com/blockscout/blockscout/blob/master/README.md">Atlascan</a>
     <span> blockchain explorer</span>
 </p>
 

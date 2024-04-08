@@ -10,7 +10,7 @@ const instance = (() => {
     return envValue;
   }
 
-  return app.host?.replace('.blockscout.com', '').replaceAll('-', '_');
+  return app.host?.replace('.atlascan.com', '').replaceAll('-', '_');
 })();
 const environment = getEnvValue('NEXT_PUBLIC_APP_ENV') || 'production';
 const release = getEnvValue('NEXT_PUBLIC_GIT_TAG');

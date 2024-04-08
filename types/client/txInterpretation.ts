@@ -1,7 +1,7 @@
 import type { ArrayElement } from 'types/utils';
 
 export const PROVIDERS = [
-  'blockscout',
+  'atlascan',
   'none',
 ] as const;
 

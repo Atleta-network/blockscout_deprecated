@@ -13,7 +13,7 @@ export const apps = [
     url: 'https://goerli.hop.exchange/send?token=ETH&sourceNetwork=ethereum',
   },
   {
-    author: 'Blockscout',
+    author: 'Atlascan',
     id: 'token-approval-tracker',
     title: 'Token Approval Tracker',
     logo: 'https://approval-tracker.apps.blockscout.com/icon-192.png',

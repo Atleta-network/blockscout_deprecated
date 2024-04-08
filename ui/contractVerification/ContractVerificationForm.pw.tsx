@@ -129,7 +129,10 @@ test.describe('sourcify', () => {
     });
 
     await component.getByLabel(/contract name/i).focus();
-    await component.getByLabel(/contract name/i).type('e');
+    // await component.getByLabel(/contract name/i).type('e');
+    const input = await component.getByLabel(/contract name/i);
+    await expect(input).toBeEditable();
+    await input.type('e');
     const contractNameOption = page.getByRole('button', { name: /MockERC20/i });
 
     await expect(contractNameOption).toBeVisible();

@@ -2,25 +2,25 @@
 
 exports[`generates correct metadata for: dynamic route 1`] = `
 {
-  "description": "View transaction 0x12345 on Blockscout (Blockscout) Explorer",
+  "description": "View transaction 0x12345 on Atleta Network (Atleta) Explorer",
   "opengraph": {
     "description": "",
     "imageUrl": "",
-    "title": "Blockscout transaction 0x12345 | Blockscout",
+    "title": "Atleta Network transaction 0x12345 | Atlascan",
   },
-  "title": "Blockscout transaction 0x12345 | Blockscout",
+  "title": "Atleta Network transaction 0x12345 | Atlascan",
 }
 `;
 
 exports[`generates correct metadata for: dynamic route with API data 1`] = `
 {
-  "description": "0x12345, balances and analytics on the Blockscout (Blockscout) Explorer",
+  "description": "0x12345, balances and analytics on the Atleta Network (Atleta) Explorer",
   "opengraph": {
     "description": "",
     "imageUrl": "",
-    "title": "Blockscout USDT token details | Blockscout",
+    "title": "Atleta Network USDT token details | Atlascan",
   },
-  "title": "Blockscout USDT token details | Blockscout",
+  "title": "Atleta Network USDT token details | Atlascan",
 }
 `;
 
@@ -29,9 +29,9 @@ exports[`generates correct metadata for: static route 1`] = `
   "description": "Blockscout is the #1 open-source blockchain explorer available today. 100+ chains and counting rely on Blockscout data availability, APIs, and ecosystem tools to support their networks.",
   "opengraph": {
     "description": "",
-    "imageUrl": "http://localhost:3000/static/og_placeholder.png",
-    "title": "Blockscout blocks | Blockscout",
+    "imageUrl": "http://localhost/static/og_placeholder.png",
+    "title": "Atleta Network blocks | Atlascan",
   },
-  "title": "Blockscout blocks | Blockscout",
+  "title": "Atleta Network blocks | Atlascan",
 }
 `;
