@@ -6,7 +6,6 @@ import { tokenInfoERC721a } from 'mocks/tokens/tokenInfo';
 import * as tokenInstanceMock from 'mocks/tokens/tokenInstance';
 import TestApp from 'playwright/TestApp';
 import buildApiUrl from 'playwright/utils/buildApiUrl';
-import * as configs from 'playwright/utils/configs';
 
 import TokenInstanceDetails from './TokenInstanceDetails';
 
@@ -38,8 +37,5 @@ test('base view +@dark-mode +@mobile', async({ mount, page }) => {
     </TestApp>,
   );
 
-  await expect(component).toHaveScreenshot({
-    mask: [ page.locator(configs.adsBannerSelector) ],
-    maskColor: configs.maskColor,
-  });
+  await expect(component).toHaveScreenshot();
 });
