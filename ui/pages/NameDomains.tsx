@@ -193,7 +193,7 @@ const NameDomains = () => {
 
   return (
     <>
-      <PageTitle title="ENS domains lookup" withTextAd/>
+      <PageTitle title="ENS domains lookup"/>
       <DataListDisplay
         isError={ isError }
         items={ data?.items }
