@@ -68,7 +68,7 @@ const ZkEvmL2TxnBatches = () => {
 
   return (
     <>
-      <PageTitle title="Tx batches" withTextAd/>
+      <PageTitle title="Tx batches"/>
       <DataListDisplay
         isError={ isError }
         items={ data?.items }

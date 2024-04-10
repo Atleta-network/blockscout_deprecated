@@ -8,9 +8,6 @@ declare module 'yup' {
 
 import * as yup from 'yup';
 
-import type { AdButlerConfig } from '../../../types/client/adButlerConfig';
-import { SUPPORTED_AD_TEXT_PROVIDERS, SUPPORTED_AD_BANNER_PROVIDERS } from '../../../types/client/adProviders';
-import type { AdTextProviders, AdBannerProviders } from '../../../types/client/adProviders';
 import type { MarketplaceAppOverview } from '../../../types/client/marketplace';
 import { NAVIGATION_LINK_IDS } from '../../../types/client/navigation-items';
 import type { NavItemExternal, NavigationLinkId } from '../../../types/client/navigation-items';
@@ -46,7 +43,7 @@ const urlTest: yup.TestConfig = {
         new URL(value);
         return true;
       }
-    } catch (error) {}
+    } catch (error) { }
 
     return false;
   },
@@ -125,29 +122,6 @@ const rollupSchema = yup
         // eslint-disable-next-line max-len
         otherwise: (schema) => schema.max(-1, 'NEXT_PUBLIC_L1_BASE_URL cannot not be used if NEXT_PUBLIC_IS_OPTIMISTIC_L2_NETWORK or NEXT_PUBLIC_IS_ZKEVM_L2_NETWORK is not set to "true"'),
       }),
-  });
-
-const adButlerConfigSchema = yup
-  .object<AdButlerConfig>()
-  .transform(replaceQuotes)
-  .json()
-  .when('NEXT_PUBLIC_AD_BANNER_PROVIDER', {
-    is: (value: AdBannerProviders) => value === 'adbutler',
-    then: (schema) => schema
-      .shape({
-        id: yup.string().required(),
-        width: yup.number().positive().required(),
-        height: yup.number().positive().required(),
-      })
-      .required(),
-  });
-
-const adsBannerSchema = yup
-  .object()
-  .shape({
-    NEXT_PUBLIC_AD_BANNER_PROVIDER: yup.string<AdBannerProviders>().oneOf(SUPPORTED_AD_BANNER_PROVIDERS),
-    NEXT_PUBLIC_AD_ADBUTLER_CONFIG_DESKTOP: adButlerConfigSchema,
-    NEXT_PUBLIC_AD_ADBUTLER_CONFIG_MOBILE: adButlerConfigSchema,
   });
 
 const sentrySchema = yup
@@ -442,7 +416,6 @@ const schema = yup
       }),
     NEXT_PUBLIC_WEB3_DISABLE_ADD_TOKEN_TO_WALLET: yup.boolean(),
     NEXT_PUBLIC_TRANSACTION_INTERPRETATION_PROVIDER: yup.string().oneOf(TX_INTERPRETATION_PROVIDERS),
-    NEXT_PUBLIC_AD_TEXT_PROVIDER: yup.string<AdTextProviders>().oneOf(SUPPORTED_AD_TEXT_PROVIDERS),
     NEXT_PUBLIC_PROMOTE_BLOCKSCOUT_IN_TITLE: yup.boolean(),
     NEXT_PUBLIC_OG_DESCRIPTION: yup.string(),
     NEXT_PUBLIC_OG_IMAGE_URL: yup.string().test(urlTest),
@@ -459,7 +432,6 @@ const schema = yup
     NEXT_PUBLIC_USE_NEXT_JS_PROXY: yup.boolean(),
   })
   .concat(accountSchema)
-  .concat(adsBannerSchema)
   .concat(marketplaceSchema)
   .concat(rollupSchema)
   .concat(beaconChainSchema)
