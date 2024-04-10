@@ -2,7 +2,6 @@ import { test as base, expect } from '@playwright/experimental-ct-react';
 import React from 'react';
 
 import { buildExternalAssetFilePath } from 'configs/app/utils';
-import * as textAdMock from 'mocks/ad/textAd';
 import { apps as appsMock } from 'mocks/apps/apps';
 import * as searchMock from 'mocks/search/index';
 import contextWithEnvs from 'playwright/fixtures/contextWithEnvs';
@@ -17,25 +16,6 @@ const test = base.extend({
     { name: 'NEXT_PUBLIC_MARKETPLACE_CONFIG_URL', value: '' },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ]) as any,
-});
-
-test.beforeEach(async({ page }) => {
-  await page.route('https://request-global.czilladx.com/serve/native.php?z=19260bf627546ab7242', (route) => route.fulfill({
-    status: 200,
-    body: JSON.stringify(textAdMock.duck),
-  }));
-  await page.route(textAdMock.duck.ad.thumbnail, (route) => {
-    return route.fulfill({
-      status: 200,
-      path: './playwright/mocks/image_s.jpg',
-    });
-  });
-  await page.route(searchMock.token1.icon_url as string, (route) => {
-    return route.fulfill({
-      status: 200,
-      path: './playwright/mocks/image_s.jpg',
-    });
-  });
 });
 
 test('search by token name  +@mobile +@dark-mode', async({ mount, page }) => {

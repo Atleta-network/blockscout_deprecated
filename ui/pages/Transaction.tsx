@@ -8,7 +8,6 @@ import useApiQuery from 'lib/api/useApiQuery';
 import { useAppContext } from 'lib/contexts/app';
 import getQueryParamString from 'lib/router/getQueryParamString';
 import { TX } from 'stubs/tx';
-import TextAd from 'ui/shared/ad/TextAd';
 import EntityTags from 'ui/shared/EntityTags';
 import PageTitle from 'ui/shared/Page/PageTitle';
 import RoutedTabs from 'ui/shared/Tabs/RoutedTabs';
@@ -79,7 +78,6 @@ const TransactionPageContent = () => {
 
   return (
     <>
-      <TextAd mb={ 6 }/>
       <PageTitle
         title="Transaction details"
         backLink={ backLink }

@@ -16,7 +16,6 @@ import * as tokenStubs from 'stubs/token';
 import { generateListStub } from 'stubs/utils';
 import AddressQrCode from 'ui/address/details/AddressQrCode';
 import AccountActionsMenu from 'ui/shared/AccountActionsMenu/AccountActionsMenu';
-import TextAd from 'ui/shared/ad/TextAd';
 import AddressAddToWallet from 'ui/shared/address/AddressAddToWallet';
 import Tag from 'ui/shared/chakra/Tag';
 import TokenEntity from 'ui/shared/entities/token/TokenEntity';
@@ -199,7 +198,6 @@ const TokenInstanceContent = () => {
 
   return (
     <>
-      <TextAd mb={ 6 }/>
       <PageTitle
         title={ `ID ${ tokenInstanceQuery.data?.id }` }
         backLink={ backLink }

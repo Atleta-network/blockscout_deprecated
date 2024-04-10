@@ -69,7 +69,7 @@ const L2Withdrawals = () => {
 
   return (
     <>
-      <PageTitle title={ `Withdrawals (L2${ nbsp }${ rightLineArrow }${ nbsp }L1)` } withTextAd/>
+      <PageTitle title={ `Withdrawals (L2${ nbsp }${ rightLineArrow }${ nbsp }L1)` }/>
       <DataListDisplay
         isError={ isError }
         items={ data?.items }

@@ -70,7 +70,7 @@ const L2OutputRoots = () => {
 
   return (
     <>
-      <PageTitle title="Output roots" withTextAd/>
+      <PageTitle title="Output roots"/>
       <DataListDisplay
         isError={ isError }
         items={ data?.items }
