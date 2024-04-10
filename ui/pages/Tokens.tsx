@@ -172,7 +172,7 @@ const Tokens = () => {
 
   return (
     <>
-      <PageTitle title="Tokens" withTextAd/>
+      <PageTitle title="Tokens"/>
       { tabs.length === 1 && !isMobile && actionBar }
       <RoutedTabs
         tabs={ tabs }

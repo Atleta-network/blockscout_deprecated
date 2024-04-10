@@ -69,7 +69,7 @@ const L2TxnBatches = () => {
 
   return (
     <>
-      <PageTitle title={ `Tx batches (L2${ nbsp }blocks)` } withTextAd/>
+      <PageTitle title={ `Tx batches (L2${ nbsp }blocks)` }/>
       <DataListDisplay
         isError={ isError }
         items={ data?.items }
