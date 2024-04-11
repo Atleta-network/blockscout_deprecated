@@ -33,49 +33,31 @@ const Footer = () => {
       icon: 'social/tweet' as const,
       iconSize: '18px',
       text: 'Twitter',
-      url: 'https://twitter.com/blockchainsprts',
+      url: 'https://twitter.com/Atleta_Network',
     },
     {
       icon: 'social/discord' as const,
       iconSize: '24px',
       text: 'Discord',
-      url: 'https://discord.gg/blockchainsports',
-    },
-    {
-      icon: 'social/medium_filled' as const,
-      iconSize: '24px',
-      text: 'Medium',
-      url: 'https://medium.com/@BlockchainSports',
+      url: 'https://discord.com/invite/blockchainsports',
     },
     {
       icon: 'social/zealy' as const,
       iconSize: '24px',
       text: 'Zealy',
-      url: 'https://zealy.io/c/blockchainsports',
-    },
-    {
-      icon: 'social/youtube' as const,
-      iconSize: '24px',
-      text: 'YouTube',
-      url: 'https://www.youtube.com/@blockchain_sports',
+      url: 'https://zealy.io/cw/atletanetwork/',
     },
     {
       icon: 'social/git' as const,
       iconSize: '24px',
       text: 'GitBook',
-      url: 'https://blockchain-sports.gitbook.io/blockchain-sports-whitepaper/',
-    },
-    {
-      icon: 'social/instagram' as const,
-      iconSize: '24px',
-      text: 'Instagram',
-      url: 'https://instagram.com/blockchain.sports',
+      url: 'https://blockchain-sports.gitbook.io/atleta-network',
     },
     {
       icon: 'social/telega' as const,
       iconSize: '24px',
       text: 'Telegram',
-      url: 'https://t.me/bcsports_io',
+      url: 'https://t.me/atleta_network',
     },
   ];
 
@@ -122,7 +104,7 @@ const Footer = () => {
   const renderProjectInfo = React.useCallback((gridArea?: GridProps['gridArea']) => {
     return (
       <Box gridArea={ gridArea }>
-        <Link fontSize="xs" href="https://www.bcsports.io">bcsports.io</Link>
+        <Link fontSize="xs" href="https://atleta.network">atleta.network</Link>
         <VStack spacing={ 1 } mt={ 6 } alignItems="start">
           { apiVersionUrl && (
             <Text fontSize="xs">
