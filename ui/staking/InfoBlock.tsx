@@ -1,21 +1,29 @@
 import { Box, Flex } from '@chakra-ui/react';
-import React from 'react';
+import React, { useMemo } from 'react';
+
+import { usePolkadotApi } from 'lib/polkadot/context';
+
+import { useInfo } from './utils/useInfo';
+
 const InfoBlock = () => {
-  const poolInfo: Array<{ title: string; description: string }> = [
+  const { api } = usePolkadotApi();
+  const info = useInfo({ api });
+
+  const poolInfo: Array<{ title: string; description: string }> = useMemo(() => [
     {
-      title: '29,152 pool members are actively bonding in pools.',
+      title: `${ info.poolMembersCounter.toFormat() } members are actively bonding in pools.`,
       description: 'The total number of accounts that have joined a pool.',
     },
     {
-      title: '14,050,812 DOT is currently bonded in pools.',
-      description: 'The total DOT currently bonded in nomination pools.',
+      title: `${ info.totalValueLocked.toFormat() } ${ api?.registry.chainTokens[0] } is currently bonded in pools.`,
+      description: `The total ${ api?.registry.chainTokens[0] } currently bonded in nomination pools.`,
     },
     {
-      title: '742,190,826 DOT is currently being staked on Polkadot.',
+      title: `${ info.totalStake.toFormat() } ${ api?.registry.chainTokens[0] } is currently being staked on Polkadot.`,
       description:
-				'The total DOT currently being staked amongst all validators and nominators.',
+				`The total ${ api?.registry.chainTokens[0] } currently being staked amongst all validators and nominators.`,
     },
-  ];
+  ], [ info, api ]);
 
   return (
     <Flex
