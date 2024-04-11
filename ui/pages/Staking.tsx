@@ -27,30 +27,31 @@ const Staking = () => {
     },
   ];
 
+  // TODO: Finish logic
   const detailsInfoItems = [
     {
       title: 'Total Validators',
       hint: 'Validators secure the Polkadot Relay Chain by validating blocks.',
       isLoading: false,
-      value: '1,017',
+      value: 'staking.counterForValidators()',
     },
     {
       title: 'Total Nominators',
       hint: 'Stakers in the network include accounts, whether active or inactive in the current session.',
       isLoading: false,
-      value: '41,179',
+      value: 'staking.counterForNominators()',
     },
     {
       title: 'Active Pools',
       hint: 'The current amount of active nomination pools on Polkadot.',
       isLoading: false,
-      value: '201',
+      value: 'nominationPools.counterForBondedPools()',
     },
     {
       title: 'Inflation Rate to Stakers',
       hint: 'DOT has unlimited supply with ~10% annual inflation. Validator rewards depend on staked amounts.',
       isLoading: false,
-      value: '8.99%',
+      value: 'staking.slashRewardFraction()',
     },
   ];
 

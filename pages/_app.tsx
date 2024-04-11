@@ -15,13 +15,13 @@ import { ChakraProvider } from 'lib/contexts/chakra';
 import { ScrollDirectionProvider } from 'lib/contexts/scrollDirection';
 import { growthBook } from 'lib/growthbook/init';
 import useLoadFeatures from 'lib/growthbook/useLoadFeatures';
+import { PolkadotApiProvider } from 'lib/polkadot/context';
 import { SocketProvider } from 'lib/socket/context';
 import theme from 'theme';
 import AppErrorBoundary from 'ui/shared/AppError/AppErrorBoundary';
 import GoogleAnalytics from 'ui/shared/GoogleAnalytics';
 import Layout from 'ui/shared/layout/Layout';
 import Web3ModalProvider from 'ui/shared/Web3ModalProvider';
-
 import 'lib/setLocale';
 
 type AppPropsWithLayout = AppProps & {
@@ -51,7 +51,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   }, []);
 
   const getLayout = Component.getLayout ?? ((page) => <Layout>{ page }</Layout>);
-
   return (
     <ChakraProvider theme={ theme } cookies={ pageProps.cookies }>
       <AppErrorBoundary
@@ -64,7 +63,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
               <GrowthBookProvider growthbook={ growthBook }>
                 <ScrollDirectionProvider>
                   <SocketProvider url={ `${ config.api.socket }${ config.api.basePath }/socket/v2` }>
-                    { getLayout(<Component { ...pageProps }/>) }
+                    <PolkadotApiProvider url={ config.api.rpc }>
+                      { getLayout(<Component { ...pageProps }/>) }
+                    </PolkadotApiProvider>
                   </SocketProvider>
                 </ScrollDirectionProvider>
               </GrowthBookProvider>
