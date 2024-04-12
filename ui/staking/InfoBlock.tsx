@@ -1,29 +1,29 @@
 import { Box, Flex } from '@chakra-ui/react';
 import React, { useMemo } from 'react';
 
-import { usePolkadotApi } from 'lib/polkadot/context';
+import { useRegistry } from 'lib/polkadot/useRegistry';
 
 import { useInfo } from './utils/useInfo';
 
 const InfoBlock = () => {
-  const { api } = usePolkadotApi();
-  const info = useInfo({ api });
+  const info = useInfo();
+  const registry = useRegistry();
 
   const poolInfo: Array<{ title: string; description: string }> = useMemo(() => [
     {
-      title: `${ info.poolMembersCounter.toFormat() } members are actively bonding in pools.`,
+      title: `${ info.poolMembersCounter.toFormat(0) } members are actively bonding in pools.`,
       description: 'The total number of accounts that have joined a pool.',
     },
     {
-      title: `${ info.totalValueLocked.toFormat() } ${ api?.registry.chainTokens[0] } is currently bonded in pools.`,
-      description: `The total ${ api?.registry.chainTokens[0] } currently bonded in nomination pools.`,
+      title: `${ info.totalValueLocked.toFormat(0) } ${ registry.symbol } is currently bonded in pools.`,
+      description: `The total ${ registry.symbol } currently bonded in nomination pools.`,
     },
     {
-      title: `${ info.totalStake.toFormat() } ${ api?.registry.chainTokens[0] } is currently being staked on Polkadot.`,
+      title: `${ info.totalStake.toFormat(0) } ${ registry.symbol } is currently being staked on Polkadot.`,
       description:
-				`The total ${ api?.registry.chainTokens[0] } currently being staked amongst all validators and nominators.`,
+				`The total ${ registry.symbol } currently being staked amongst all validators and nominators.`,
     },
-  ], [ info, api ]);
+  ], [ info, registry ]);
 
   return (
     <Flex

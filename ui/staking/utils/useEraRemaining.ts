@@ -1,4 +1,3 @@
-import type { ApiPromise } from '@polkadot/api';
 import duration from 'dayjs/plugin/duration';
 import { useEffect, useState } from 'react';
 
@@ -6,6 +5,7 @@ import type { Option } from '@polkadot/types';
 import type { ActiveEraInfo } from '@polkadot/types/interfaces';
 
 import dayjs from 'lib/date/dayjs';
+import { usePolkadotApi } from 'lib/polkadot/context';
 
 type CalcRemainingProps = {
   genesisSlot: number;
@@ -30,16 +30,23 @@ const calcRemaining = ({
   sessionsPerEra,
   expectedBlockTime,
 }: CalcRemainingProps): number => {
+  // era length in slots
   const estimatedEraLength = sessionsPerEra * sessionLength * expectedBlockTime;
+  // when epoch started
   const epochStartSlot = epochIndex * sessionLength + genesisSlot;
+  // how many sessions pasted since era start
   const sessionProgress = currentSlot - epochStartSlot;
+  // era pogress in slots
   const erasProgress = (currentIndex - erasStartSessionIndex) * sessionLength + sessionProgress;
 
+  // slots length possinble may be in constants
+  // now it's 6000
   return estimatedEraLength - erasProgress * 6000;
 };
 
-export const useEraRemaining = ({ api }: { api?: ApiPromise }) => {
+export const useEraRemaining = () => {
   const [ remaining, setRemaining ] = useState(0);
+  const { api } = usePolkadotApi();
 
   useEffect(() => {
     if (!api) {
@@ -50,7 +57,6 @@ export const useEraRemaining = ({ api }: { api?: ApiPromise }) => {
 
     const main = async() => {
       // session length is the same as epoch epochDuration
-      // now it's 100 slots
       const sessionLength = api.consts.babe.epochDuration.toPrimitive() as number;
 
       // activeEra is an object with two fields
