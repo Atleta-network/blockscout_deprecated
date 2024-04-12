@@ -1,12 +1,14 @@
-import type { ApiPromise } from '@polkadot/api';
 import BigNumber from 'bignumber.js';
 import { useEffect, useState } from 'react';
 
 import type { Option } from '@polkadot/types';
 import type { ActiveEraInfo } from '@polkadot/types/interfaces';
 
-export const useSupply = ({ api }: { api?: ApiPromise}) => {
+import { usePolkadotApi } from 'lib/polkadot/context';
+
+export const useSupply = () => {
   const [ supply, setSupply ] = useState('100');
+  const { api } = usePolkadotApi();
 
   useEffect(() => {
     if (!api) {

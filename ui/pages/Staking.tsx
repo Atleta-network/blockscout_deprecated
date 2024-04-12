@@ -1,13 +1,22 @@
 import { Flex, Grid, Heading } from '@chakra-ui/react';
 import React from 'react';
 
+import { usePolkadotApi } from 'lib/polkadot/context';
+import { useRegistry } from 'lib/polkadot/useRegistry';
 import ChartWidget from 'ui/shared/chart/ChartWidget';
 import DetailsInfoItem from 'ui/shared/DetailsInfoItem';
 import PageTitle from 'ui/shared/Page/PageTitle';
 import InfoBlock from 'ui/staking/InfoBlock';
 import StakingStats from 'ui/staking/StakingStats';
+import { useAverageRewardRate } from 'ui/staking/utils/useAverageRewardRate';
+import { useStats } from 'ui/staking/utils/useStats';
 
 const Staking = () => {
+  const { isLoading } = usePolkadotApi();
+  const { averageRewardRate, inflationRate } = useAverageRewardRate();
+  const registry = useRegistry();
+  const stats = useStats();
+
   const chartData = [
     {
       date: '2024-01-01',
@@ -27,31 +36,30 @@ const Staking = () => {
     },
   ];
 
-  // TODO: Finish logic
   const detailsInfoItems = [
     {
       title: 'Total Validators',
       hint: 'Validators secure the Polkadot Relay Chain by validating blocks.',
-      isLoading: false,
-      value: 'staking.counterForValidators()',
+      isLoading,
+      value: stats.totalValidators,
     },
     {
       title: 'Total Nominators',
       hint: 'Stakers in the network include accounts, whether active or inactive in the current session.',
-      isLoading: false,
-      value: 'staking.counterForNominators()',
+      isLoading,
+      value: stats.totalNominators,
     },
     {
       title: 'Active Pools',
       hint: 'The current amount of active nomination pools on Polkadot.',
-      isLoading: false,
-      value: 'nominationPools.counterForBondedPools()',
+      isLoading,
+      value: stats.activePools,
     },
     {
       title: 'Inflation Rate to Stakers',
-      hint: 'DOT has unlimited supply with ~10% annual inflation. Validator rewards depend on staked amounts.',
-      isLoading: false,
-      value: 'staking.slashRewardFraction()',
+      hint: `${ registry.symbol } has unlimited supply with ~10% annual inflation. Validator rewards depend on staked amounts.`,
+      isLoading,
+      value: `${ inflationRate }%`,
     },
   ];
 
@@ -65,7 +73,7 @@ const Staking = () => {
   return (
     <div>
       <PageTitle title="Overview"/>
-      <StakingStats/>
+      <StakingStats averageRewardRate={ averageRewardRate }/>
       <ChartWidget
         marginTop="20px"
         items={ updatedChartData }

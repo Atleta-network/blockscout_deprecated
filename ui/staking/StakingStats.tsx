@@ -2,17 +2,17 @@
 import { Grid } from '@chakra-ui/react';
 import React from 'react';
 
-import { usePolkadotApi } from 'lib/polkadot/context';
+import { useRegistry } from 'lib/polkadot/useRegistry';
 
 import StatsItem from '../home/StatsItem';
 import { useEraRemaining } from './utils/useEraRemaining';
 import { useSupply } from './utils/useSupply';
 
-const StakingStats = () => {
-  const { api } = usePolkadotApi();
+const StakingStats = ({ averageRewardRate }: { averageRewardRate: string }) => {
+  const registry = useRegistry();
 
-  const eraRemaining = useEraRemaining({ api });
-  const supply = useSupply({ api });
+  const eraRemaining = useEraRemaining();
+  const supply = useSupply();
 
   return (
     <Grid
@@ -24,16 +24,16 @@ const StakingStats = () => {
       <StatsItem
         icon="txn_batches"
         title="Average Reward Rate"
-        value="17.43%"
+        value={` ${ averageRewardRate }%` }
         tooltipLabel="Estimated annual return of staking rewards."
       />
       <StatsItem
         icon="block"
-        title={ `${ api?.registry.chainTokens[0] } Supply Staked` }
+        title={ `${ registry.symbol } Supply Staked` }
         value={ `${ supply }%` }
         tooltipLabel={
-          `Cumulative supply of ${ api?.registry.chainTokens[0] } being staked` +
-          ` globally relative to the total supply of ${ api?.registry.chainTokens[0] }.`
+          `Cumulative supply of ${ registry.symbol } being staked` +
+          ` globally relative to the total supply of ${ registry.symbol }.`
         }
       />
       <StatsItem
