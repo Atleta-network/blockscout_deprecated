@@ -1,6 +1,8 @@
 import type { ApiPromise } from '@polkadot/api';
 import BigNumber from 'bignumber.js';
 
+import type { Dayjs } from 'lib/date/dayjs';
+
 export const getErasPerDay = (sessionsPerEraStr: string, epochDurationStr: string, expectedBlockTimeStr: string): BigNumber => {
   const sessionsPerEra = new BigNumber(sessionsPerEraStr);
   const epochDuration = new BigNumber(epochDurationStr);
@@ -56,6 +58,7 @@ export const getAverageEraValidatorReward = async(
   const reward = validatorEraRewards
     .map((v) => {
       const value = new BigNumber(v.toString() === '' ? 0 : v.toString());
+
       if (value.isNaN()) {
         return new BigNumber(0);
       }
@@ -66,4 +69,13 @@ export const getAverageEraValidatorReward = async(
     .div(eras.length);
 
   return reward;
+};
+
+// how many eras passed from day start
+export const getErasPassedToday = (erasPerDay: number, now: Dayjs, dayStart: Dayjs) => {
+  const MILIS_IN_DAY = 86400000;
+
+  const milisPassedFromDayStart = now.valueOf() - dayStart.valueOf();
+
+  return Math.trunc(erasPerDay * (milisPassedFromDayStart / MILIS_IN_DAY));
 };

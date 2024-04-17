@@ -61,4 +61,6 @@ dayjs.updateLocale('en', {
 
 dayjs.locale('en');
 
+// eslint-disable-next-line no-restricted-imports
+export type { Dayjs } from 'dayjs';
 export default dayjs;

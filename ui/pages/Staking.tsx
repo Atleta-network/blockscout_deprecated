@@ -9,6 +9,7 @@ import PageTitle from 'ui/shared/Page/PageTitle';
 import InfoBlock from 'ui/staking/InfoBlock';
 import StakingStats from 'ui/staking/StakingStats';
 import { useAverageRewardRate } from 'ui/staking/utils/useAverageRewardRate';
+import { useRecentPayouts } from 'ui/staking/utils/useRecentPayouts';
 import { useStats } from 'ui/staking/utils/useStats';
 
 const Staking = () => {
@@ -16,25 +17,7 @@ const Staking = () => {
   const { averageRewardRate, inflationRate } = useAverageRewardRate();
   const registry = useRegistry();
   const stats = useStats();
-
-  const chartData = [
-    {
-      date: '2024-01-01',
-      value: '22.754379629407154',
-    },
-    {
-      date: '2024-01-02',
-      value: '27.453057189560774',
-    },
-    {
-      date: '2024-01-03',
-      value: '43.10447337606563',
-    },
-    {
-      date: '2024-01-04',
-      value: '7.411615351008571',
-    },
-  ];
+  const chartData = useRecentPayouts(4);
 
   const detailsInfoItems = [
     {
@@ -63,24 +46,17 @@ const Staking = () => {
     },
   ];
 
-  const updatedChartData: Array<{ date: Date; value: number }> = chartData.map(
-    (item) => ({
-      date: new Date(item.date),
-      value: Number(item.value),
-    }),
-  );
-
   return (
     <div>
       <PageTitle title="Overview"/>
       <StakingStats averageRewardRate={ averageRewardRate }/>
       <ChartWidget
         marginTop="20px"
-        items={ updatedChartData }
+        items={ chartData }
         title="Recent Payouts"
-        units="DOT"
-        description="0 DOT"
-        isLoading={ false }
+        units={ registry.symbol }
+        description={ `0 ${ registry.symbol }` }
+        isLoading={ isLoading }
         isError={ false }
         minH="230px"
       />
