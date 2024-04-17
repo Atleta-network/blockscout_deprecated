@@ -1,77 +1,62 @@
 import { Flex, Grid, Heading } from '@chakra-ui/react';
 import React from 'react';
 
+import { usePolkadotApi } from 'lib/polkadot/context';
+import { useRegistry } from 'lib/polkadot/useRegistry';
 import ChartWidget from 'ui/shared/chart/ChartWidget';
 import DetailsInfoItem from 'ui/shared/DetailsInfoItem';
 import PageTitle from 'ui/shared/Page/PageTitle';
 import InfoBlock from 'ui/staking/InfoBlock';
 import StakingStats from 'ui/staking/StakingStats';
+import { useAverageRewardRate } from 'ui/staking/utils/useAverageRewardRate';
+import { useRecentPayouts } from 'ui/staking/utils/useRecentPayouts';
+import { useStats } from 'ui/staking/utils/useStats';
 
 const Staking = () => {
-  const chartData = [
-    {
-      date: '2024-01-01',
-      value: '22.754379629407154',
-    },
-    {
-      date: '2024-01-02',
-      value: '27.453057189560774',
-    },
-    {
-      date: '2024-01-03',
-      value: '43.10447337606563',
-    },
-    {
-      date: '2024-01-04',
-      value: '7.411615351008571',
-    },
-  ];
+  const { isLoading } = usePolkadotApi();
+  const { averageRewardRate, inflationRate } = useAverageRewardRate();
+  const registry = useRegistry();
+  const stats = useStats();
+  const chartData = useRecentPayouts(4);
 
   const detailsInfoItems = [
     {
       title: 'Total Validators',
       hint: 'Validators secure the Polkadot Relay Chain by validating blocks.',
-      isLoading: false,
-      value: '1,017',
+      isLoading,
+      value: stats.totalValidators,
     },
     {
       title: 'Total Nominators',
       hint: 'Stakers in the network include accounts, whether active or inactive in the current session.',
-      isLoading: false,
-      value: '41,179',
+      isLoading,
+      value: stats.totalNominators,
     },
     {
       title: 'Active Pools',
       hint: 'The current amount of active nomination pools on Polkadot.',
-      isLoading: false,
-      value: '201',
+      isLoading,
+      value: stats.activePools,
     },
     {
       title: 'Inflation Rate to Stakers',
-      hint: 'DOT has unlimited supply with ~10% annual inflation. Validator rewards depend on staked amounts.',
-      isLoading: false,
-      value: '8.99%',
+      hint: `${ registry.symbol } has unlimited supply with ~10% annual inflation. Validator rewards depend on staked amounts.`,
+      isLoading,
+      value: `${ inflationRate }%`,
     },
   ];
-
-  const updatedChartData: Array<{ date: Date; value: number }> = chartData.map(
-    (item) => ({
-      date: new Date(item.date),
-      value: Number(item.value),
-    }),
-  );
 
   return (
     <div>
       <PageTitle title="Overview"/>
-      <StakingStats/>
+      <StakingStats averageRewardRate={ averageRewardRate }/>
       <ChartWidget
         marginTop="20px"
-        items={ updatedChartData }
+        items={ chartData }
         title="Recent Payouts"
-        units="DOT"
-        description="0 DOT"
-        isLoading={ false }
+        units={ registry.symbol }
+        description={ `0 ${ registry.symbol }` }
+        isLoading={ isLoading }
         isError={ false }
         minH="230px"
       />
