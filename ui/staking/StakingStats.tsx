@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-curly-spacing */
 import { Grid } from '@chakra-ui/react';
 import React from 'react';
 
@@ -24,7 +23,7 @@ const StakingStats = ({ averageRewardRate }: { averageRewardRate: string }) => {
       <StatsItem
         icon="txn_batches"
         title="Average Reward Rate"
-        value={` ${ averageRewardRate }%` }
+        value={ `${ averageRewardRate }%` }
         tooltipLabel="Estimated annual return of staking rewards."
       />
       <StatsItem
