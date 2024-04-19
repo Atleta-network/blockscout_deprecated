@@ -63,7 +63,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
               <GrowthBookProvider growthbook={ growthBook }>
                 <ScrollDirectionProvider>
                   <SocketProvider url={ `${ config.api.socket }${ config.api.basePath }/socket/v2` }>
-                    <PolkadotApiProvider url={ config.api.rpc }>
+                    <PolkadotApiProvider url={ config.chain.rpcUrl }>
                       { getLayout(<Component { ...pageProps }/>) }
                     </PolkadotApiProvider>
                   </SocketProvider>
