@@ -20,7 +20,6 @@ const socketEndpoint = [
   apiPort && ':' + apiPort,
 ].filter(Boolean).join('');
 
-const rpcEndpoing = getEnvValue('NEXT_PUBLIC_RPC_HOST');
 const api = Object.freeze({
   host: apiHost,
   protocol: apiSchema,
@@ -28,7 +27,6 @@ const api = Object.freeze({
   endpoint: apiEndpoint,
   socket: socketEndpoint,
   basePath: stripTrailingSlash(getEnvValue('NEXT_PUBLIC_API_BASE_PATH') || ''),
-  rpc: rpcEndpoing,
 });
 
 export default api;
