@@ -25,7 +25,7 @@ export const useSupply = () => {
 
       const supply = new BigNumber(totalStake.toString()).dividedBy(totalIssuance.toString()).multipliedBy(100);
 
-      setSupply(supply.toFixed(2));
+      setSupply(supply.toFixed(1));
     });
 
     return () => {

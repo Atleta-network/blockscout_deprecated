@@ -7,7 +7,7 @@ import StatsItem from '../home/StatsItem';
 import { useEraRemaining } from './utils/useEraRemaining';
 import { useSupply } from './utils/useSupply';
 
-const StakingStats = ({ averageRewardRate }: { averageRewardRate: string }) => {
+const StakingStats = () => {
   const registry = useRegistry();
 
   const eraRemaining = useEraRemaining();
@@ -20,12 +20,15 @@ const StakingStats = ({ averageRewardRate }: { averageRewardRate: string }) => {
       gridGap="10px"
       marginTop="24px"
     >
+      { /*
+      // temporary removed due to strange value
       <StatsItem
         icon="txn_batches"
         title="Average Reward Rate"
         value={ `${ averageRewardRate }%` }
         tooltipLabel="Estimated annual return of staking rewards."
       />
+      */ }
       <StatsItem
         icon="block"
         title={ `${ registry.symbol } Supply Staked` }
