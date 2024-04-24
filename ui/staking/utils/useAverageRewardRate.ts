@@ -68,8 +68,8 @@ export const useAverageRewardRate = () => {
       const averageRewardRate = inflationToStakers.dividedBy(supplyStaked);
 
       setResult({
-        averageRewardRate: averageRewardRate.decimalPlaces(1).toFormat(),
-        inflationRate: inflationToStakers.decimalPlaces(1).toFormat(),
+        averageRewardRate: averageRewardRate.decimalPlaces(2).toFormat(),
+        inflationRate: inflationToStakers.decimalPlaces(2).toFormat(),
       });
     });
 
