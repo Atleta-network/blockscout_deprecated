@@ -73,11 +73,19 @@ services:
       file: ./services/stats.yml
       service: stats
 
+  certbot:
+    depends_on:
+      - backend
+    extends:
+      file: ./services/certbot.yml
+      service: certbot
+
   proxy:
     depends_on:
       - backend
       - frontend
       - stats
+      - certbot
     extends:
       file: ./services/nginx.yml
       service: proxy
