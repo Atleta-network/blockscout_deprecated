@@ -14,7 +14,7 @@ import { useStats } from 'ui/staking/utils/useStats';
 
 const Staking = () => {
   const { isLoading } = usePolkadotApi();
-  const { averageRewardRate, inflationRate } = useAverageRewardRate();
+  const { inflationRate } = useAverageRewardRate();
   const registry = useRegistry();
   const stats = useStats();
   const chartData = useRecentPayouts(4);
@@ -49,7 +49,7 @@ const Staking = () => {
   return (
     <div>
       <PageTitle title="Overview"/>
-      <StakingStats averageRewardRate={ averageRewardRate }/>
+      <StakingStats/>
       <ChartWidget
         marginTop="20px"
         items={ chartData }
