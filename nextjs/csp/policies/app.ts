@@ -49,7 +49,6 @@ export function app(): CspDev.DirectiveDescriptor {
       // APIs
       config.api.endpoint,
       config.api.socket,
-      config.api.rpc,
       getFeaturePayload(config.features.stats)?.api.endpoint,
       getFeaturePayload(config.features.sol2uml)?.api.endpoint,
       getFeaturePayload(config.features.verifiedTokens)?.api.endpoint,
@@ -70,7 +69,9 @@ export function app(): CspDev.DirectiveDescriptor {
 
       // next.js generates and rebuilds source maps in dev using eval()
       // https://github.com/vercel/next.js/issues/14221#issuecomment-657258278
-      config.app.isDev ? KEY_WORDS.UNSAFE_EVAL : '',
+      // polkadot api doesn't work without 'usafe-eval' csp
+      // because webassembly uses eval under the hood
+      KEY_WORDS.UNSAFE_EVAL,
 
       // hash of ColorModeScript
       '\'sha256-e7MRMmTzLsLQvIy1iizO1lXf7VWYoQ6ysj5fuUzvRwE=\'',
