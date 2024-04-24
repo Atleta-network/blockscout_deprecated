@@ -9,7 +9,6 @@ services:
     entrypoint: "/bin/sh -c 'trap exit TERM; certbot certonly --standalone --preferred-challenges http -d blockscout.atleta.network --email admin@moneyfactory.io --agree-tos --non-interactive --verbose; sleep 12h'"
     ports:
       - "0.0.0.0:80:80"
-      - "0.0.0.0:443:80"
     environment:
       - CERTBOT_EMAIL=admin@moneyfactory.io
       - CERTBOT_DOMAIN=blockscout.atleta.network
