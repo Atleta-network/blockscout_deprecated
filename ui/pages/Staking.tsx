@@ -22,7 +22,7 @@ const Staking = () => {
   const detailsInfoItems = [
     {
       title: 'Total Validators',
-      hint: 'Validators secure the Polkadot Relay Chain by validating blocks.',
+      hint: 'Validators secure the Atleta Relay Chain by validating blocks.',
       isLoading,
       value: stats.totalValidators,
     },
@@ -34,7 +34,7 @@ const Staking = () => {
     },
     {
       title: 'Active Pools',
-      hint: 'The current amount of active nomination pools on Polkadot.',
+      hint: 'The current amount of active nomination pools on Atleta.',
       isLoading,
       value: stats.activePools,
     },

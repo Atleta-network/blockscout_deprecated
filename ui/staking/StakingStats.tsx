@@ -10,7 +10,7 @@ import { useSupply } from './utils/useSupply';
 const StakingStats = () => {
   const registry = useRegistry();
 
-  const eraRemaining = useEraRemaining();
+  const { erasProgress, estimatedEraLength } = useEraRemaining();
   const supply = useSupply();
 
   return (
@@ -41,8 +41,11 @@ const StakingStats = () => {
       <StatsItem
         icon="clock-light"
         title="Time Remaining This Era"
-        value={ `${ Math.trunc(eraRemaining.asHours()) }h ${ eraRemaining.minutes() }m ${ eraRemaining.seconds() }s` }
-        tooltipLabel="At the end of each era, validators are rewarded DOT based on era points accumulated.  1 era is currently 24 hours in Polkadot."
+        value={ `${ Math.trunc(erasProgress.asHours()) }h ${ erasProgress.minutes() }m ${ erasProgress.seconds() }s` }
+        tooltipLabel={
+          `At the end of each era, validators are rewarded ${ registry.symbol } based on era points accumulated. ` +
+          `1 era is currently ${ estimatedEraLength.asHours() } hour${ estimatedEraLength.asHours() > 1 ? 's' : '' } in Atleta.`
+        }
       />
     </Grid>
   );
