@@ -15,7 +15,6 @@ import AddressBlocksValidated from 'ui/address/AddressBlocksValidated';
 import AddressCoinBalance from 'ui/address/AddressCoinBalance';
 import AddressContract from 'ui/address/AddressContract';
 import AddressDetails from 'ui/address/AddressDetails';
-import AddressInternalTxs from 'ui/address/AddressInternalTxs';
 import AddressLogs from 'ui/address/AddressLogs';
 import AddressTokens from 'ui/address/AddressTokens';
 import AddressTokenTransfers from 'ui/address/AddressTokenTransfers';
@@ -93,12 +92,6 @@ const AddressPageContent = () => {
         count: addressTabsCountersQuery.data?.token_balances_count,
         component: <AddressTokens/>,
         subTabs: TOKEN_TABS,
-      },
-      {
-        id: 'internal_txns',
-        title: 'Internal txns',
-        count: addressTabsCountersQuery.data?.internal_txs_count,
-        component: <AddressInternalTxs scrollRef={ tabsScrollRef }/>,
       },
       {
         id: 'coin_balance_history',
