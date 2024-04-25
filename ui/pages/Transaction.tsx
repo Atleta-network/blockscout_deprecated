@@ -15,7 +15,7 @@ import TabsSkeleton from 'ui/shared/Tabs/TabsSkeleton';
 import useTabIndexFromQuery from 'ui/shared/Tabs/useTabIndexFromQuery';
 import TxDetails from 'ui/tx/TxDetails';
 import TxDetailsWrapped from 'ui/tx/TxDetailsWrapped';
-import TxInternals from 'ui/tx/TxInternals';
+// import TxInternals from 'ui/tx/TxInternals';
 import TxLogs from 'ui/tx/TxLogs';
 import TxRawTrace from 'ui/tx/TxRawTrace';
 import TxState from 'ui/tx/TxState';
@@ -46,7 +46,7 @@ const TransactionPageContent = () => {
       { id: 'wrapped', title: 'Regular tx details', component: <TxDetailsWrapped data={ data.wrapped }/> } :
       undefined,
     { id: 'token_transfers', title: 'Token transfers', component: <TxTokenTransfer/> },
-    { id: 'internal', title: 'Internal txns', component: <TxInternals/> },
+    // { id: 'internal', title: 'Internal txns', component: <TxInternals/> },
     { id: 'logs', title: 'Logs', component: <TxLogs/> },
     { id: 'state', title: 'State', component: <TxState/> },
     { id: 'raw_trace', title: 'Raw trace', component: <TxRawTrace/> },
