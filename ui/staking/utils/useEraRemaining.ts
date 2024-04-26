@@ -18,6 +18,11 @@ type CalcRemainingProps = {
   expectedBlockTime: number;
 }
 
+type CalcRemainingReturn = {
+  erasProgress: number;
+  estimatedEraLength: number;
+}
+
 dayjs.extend(duration);
 
 const calcRemaining = ({
@@ -29,7 +34,7 @@ const calcRemaining = ({
   erasStartSessionIndex,
   sessionsPerEra,
   expectedBlockTime,
-}: CalcRemainingProps): number => {
+}: CalcRemainingProps): CalcRemainingReturn => {
   // era length in slots
   const estimatedEraLength = sessionsPerEra * sessionLength * expectedBlockTime;
   // when epoch started
@@ -41,11 +46,14 @@ const calcRemaining = ({
 
   // slots length possinble may be in constants
   // now it's 6000
-  return estimatedEraLength - erasProgress * 6000;
+  return {
+    erasProgress: estimatedEraLength - erasProgress * 6000,
+    estimatedEraLength,
+  };
 };
 
 export const useEraRemaining = () => {
-  const [ remaining, setRemaining ] = useState(0);
+  const [ remaining, setRemaining ] = useState<CalcRemainingReturn>({ erasProgress: 0, estimatedEraLength: 0 });
   const { api } = usePolkadotApi();
 
   useEffect(() => {
@@ -93,5 +101,8 @@ export const useEraRemaining = () => {
     };
   }, [ api ]);
 
-  return dayjs.duration(remaining);
+  return {
+    erasProgress: dayjs.duration(remaining.erasProgress),
+    estimatedEraLength: dayjs.duration(remaining.estimatedEraLength),
+  };
 };
