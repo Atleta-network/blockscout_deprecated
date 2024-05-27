@@ -39,7 +39,7 @@ export const useRecentPayouts = (days: number) => {
 
       const activeEraIndex = activeEra.unwrap().index.toPrimitive() as number;
 
-      const erasToRequest = Array.from({ length: erasToView }).map(
+      const erasToRequest = Array.from({ length: erasToView > activeEraIndex ? activeEraIndex : erasToView }).map(
         // we don't count eras that passed 'today'
         (_, idx) => activeEraIndex - idx - erasPassedFromDayStart,
       );
