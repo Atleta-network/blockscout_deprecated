@@ -40,7 +40,7 @@ const Staking = () => {
     },
     {
       title: 'Inflation Rate to Stakers',
-      hint: `${ registry.symbol } has unlimited supply with ~10% annual inflation. Validator rewards depend on staked amounts.`,
+      hint: `${ registry.symbol } has 7.5B supply with ~10% annual inflation. Validator rewards depend on staked amounts.`,
       isLoading,
       value: `${ inflationRate }%`,
     },

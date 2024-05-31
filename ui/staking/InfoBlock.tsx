@@ -19,7 +19,7 @@ const InfoBlock = () => {
       description: `The total ${ registry.symbol } currently bonded in nomination pools.`,
     },
     {
-      title: `${ info.totalStake.toFormat(0) } ${ registry.symbol } is currently being staked on Polkadot.`,
+      title: `${ info.totalStake.toFormat(0) } ${ registry.symbol } is currently being staked on Atleta.`,
       description:
 				`The total ${ registry.symbol } currently being staked amongst all validators and nominators.`,
     },

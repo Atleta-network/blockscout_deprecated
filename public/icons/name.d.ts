@@ -70,6 +70,7 @@
 	| "networks/logo-placeholder"
 	| "nft_shield"
 	| "output_roots"
+	| "ownlogo"
 	| "plus"
 	| "privattags"
 	| "profile"
