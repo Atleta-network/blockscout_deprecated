@@ -71,6 +71,7 @@
 	| "nft_shield"
 	| "output_roots"
 	| "ownlogo"
+	| "ownlogodark"
 	| "plus"
 	| "privattags"
 	| "profile"
