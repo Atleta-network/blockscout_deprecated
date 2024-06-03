@@ -39,7 +39,7 @@ const Footer = () => {
       icon: 'social/discord' as const,
       iconSize: '24px',
       text: 'Discord',
-      url: 'https://discord.com/invite/blockchainsports',
+      url: 'https://discord.gg/atletanetwork',
     },
     {
       icon: 'social/zealy' as const,
