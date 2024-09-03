@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ "devops/55-nginx-reloading" ]
+    branches: [ "atleta" ]
 
 jobs:
   build:
