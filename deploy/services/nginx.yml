@@ -19,5 +19,4 @@ services:
       - 443:443
       - 8080:8080
       - 8081:8081
-    command: /bin/sh -c "/check_ssl.sh & nginx -g 'daemon off;'"
 
