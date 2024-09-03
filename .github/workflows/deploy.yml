@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ "atleta" ]
+    branches: [ "devops/55-nginx-reloading" ]
 
 jobs:
   build:
@@ -13,13 +13,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Create Image Tarball
+      - name: Create Image Tarball for explorer-frontend
         run: |
           docker build --build-arg GIT_COMMIT_SHA=$(git rev-parse --short HEAD) --build-arg GIT_TAG=$(git describe --tags --abbrev=0) -t explorer-frontend .
           docker save -o explorer-frontend.tar explorer-frontend
           mkdir -p artifacts
           mv explorer-frontend.tar artifacts/
           
+      - name: Create Image Tarball for nginx
+        run: |
+          docker build --build-arg GIT_COMMIT_SHA=$(git rev-parse --short HEAD) --build-arg GIT_TAG=$(git describe --tags --abbrev=0) -t nginx-explorer nginx-docker/
+          docker save -o nginx-explorer.tar nginx-explorer
+          mv nginx-explorer.tar artifacts/
+
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh/
@@ -44,6 +50,7 @@ jobs:
           script: |
             cd /blockscout
             docker load -i explorer-frontend.tar
+            docker load -i nginx-explorer.tar
             docker compose down
             docker compose pull
             docker compose up -d --build --remove-orphans

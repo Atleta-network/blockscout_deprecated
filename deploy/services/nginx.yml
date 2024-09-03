@@ -2,8 +2,10 @@ version: '3.9'
 
 services:
   proxy:
-    image: nginx
+    image: nginx-explorer
+    pull_policy: never
     container_name: proxy
+    restart: unless-stopped
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     volumes:
@@ -17,3 +19,5 @@ services:
       - 443:443
       - 8080:8080
       - 8081:8081
+    command: /bin/sh -c "/check_ssl.sh & nginx -g 'daemon off;'"
+
