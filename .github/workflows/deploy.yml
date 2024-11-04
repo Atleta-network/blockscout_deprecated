@@ -2,11 +2,11 @@ name: Deploy
 
 on:
   push:
-    branches: [ "atleta" ]
+    branches: [ "devops/testnet_v2" ]
 
 jobs:
   build:
-    environment: main
+    environment: testnet_v2
     runs-on: ubuntu-latest
 
     steps:

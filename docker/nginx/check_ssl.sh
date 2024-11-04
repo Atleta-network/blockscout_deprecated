@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CERT_DIR="/etc/letsencrypt/live/blockscout.atleta.network"
+CERT_DIR="/etc/nginx/ssl/live/blockscout.testnet-v2.atleta.network"
 FULLCHAIN_PEM="$CERT_DIR/fullchain.pem"
 PRIVKEY_PEM="$CERT_DIR/privkey.pem"
 MD5SUM_FILE="/tmp/md5sum"
