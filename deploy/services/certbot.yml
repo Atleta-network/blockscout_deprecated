@@ -5,7 +5,7 @@ services:
     image: certbot/certbot
     restart: always
     volumes:
-      - /etc/letsencrypt:/etc/letsencrypt
+      - ./certbot/conf/:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; certbot certonly --standalone --preferred-challenges http -d blockscout.atleta.network --email admin@moneyfactory.io --agree-tos --non-interactive --verbose; sleep 12h'"
     ports:

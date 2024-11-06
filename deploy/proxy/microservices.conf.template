@@ -8,8 +8,8 @@ server {
     listen       8080 ssl;
     server_name  blockscout.atleta.network;
 
-    ssl_certificate /etc/letsencrypt/live/blockscout.atleta.network/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/blockscout.atleta.network/privkey.pem;
+    ssl_certificate /etc/nginx/ssl/live/blockscout.atleta.network/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/blockscout.atleta.network/privkey.pem;
     
     proxy_http_version 1.1;
     proxy_hide_header Access-Control-Allow-Origin;
@@ -34,8 +34,8 @@ server {
     listen       8081 ssl;
     server_name  blockscout.atleta.network;
 
-    ssl_certificate /etc/letsencrypt/live/blockscout.atleta.network/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/blockscout.atleta.network/privkey.pem;
+    ssl_certificate /etc/nginx/ssl/live/blockscout.atleta.network/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/blockscout.atleta.network/privkey.pem;
     
     proxy_http_version 1.1;
     proxy_hide_header Access-Control-Allow-Origin;
