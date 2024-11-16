@@ -1,13 +1,14 @@
 name: Deploy
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "atleta" ]
 
 jobs:
   build:
     environment: main
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Repository
