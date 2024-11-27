@@ -7,9 +7,9 @@ services:
     volumes:
       - ./certbot/conf/:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; certbot certonly --standalone --preferred-challenges http -d blockscout.atleta.network --email admin@moneyfactory.io --agree-tos --non-interactive --verbose; sleep 12h'"
+    entrypoint: "/bin/sh -c 'trap exit TERM; certbot certonly --standalone --preferred-challenges http -d blockscout.devnet.atleta.network --email admin@moneyfactory.io --agree-tos --non-interactive --verbose; sleep 12h'"
     ports:
       - "0.0.0.0:80:80"
     environment:
       - CERTBOT_EMAIL=admin@moneyfactory.io
-      - CERTBOT_DOMAIN=blockscout.atleta.network
+      - CERTBOT_DOMAIN=blockscout.devnet.atleta.network
