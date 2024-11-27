@@ -29,9 +29,9 @@ services:
     links:
       - db:database
     environment:
-        ETHEREUM_JSONRPC_HTTP_URL: https://katleta-dev-rpc.quark.blue:9944/
-        ETHEREUM_JSONRPC_TRACE_URL: https://katleta-dev-rpc.quark.blue:9944/
-        ETHEREUM_JSONRPC_WS_URL: wss://katleta-dev-rpc.quark.blue:9944/
+        ETHEREUM_JSONRPC_HTTP_URL: https://katleta-dev-rpc.quark.blue:443/
+        ETHEREUM_JSONRPC_TRACE_URL: https://katleta-dev-rpc.quark.blue:443/
+        ETHEREUM_JSONRPC_WS_URL: wss://katleta-dev-rpc.quark.blue:443/
         ETHEREUM_JSONRPC_VARIANT: 'geth'
         CHAIN_ID: '2300'
 
