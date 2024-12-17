@@ -29,9 +29,9 @@ services:
     links:
       - db:database
     environment:
-        ETHEREUM_JSONRPC_HTTP_URL: https://rpc.testnet-v2.atleta.network:9944/
-        ETHEREUM_JSONRPC_TRACE_URL: https://rpc.testnet-v2.atleta.network:9944/
-        ETHEREUM_JSONRPC_WS_URL: wss://rpc.testnet-v2.atleta.network:9944/
+        ETHEREUM_JSONRPC_HTTP_URL: https://rpc.testnet-v2.atleta.network/
+        ETHEREUM_JSONRPC_TRACE_URL: https://rpc.testnet-v2.atleta.network/
+        ETHEREUM_JSONRPC_WS_URL: wss://rpc.testnet-v2.atleta.network/
         ETHEREUM_JSONRPC_VARIANT: 'geth'
         CHAIN_ID: '2340'
 
