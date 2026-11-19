@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM nginx:1.31.9-alpine3.24-slim
 
 COPY check_ssl.sh /
 
